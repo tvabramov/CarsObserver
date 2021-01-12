@@ -1,0 +1,85 @@
+{
+	"Recognizer" : {
+		"on" : true,
+
+		"maxPendingFrames" : 3,
+		"waitTimeoutMs" : 200,
+
+		"InternalRecognizer" : {
+			"typeName" : "FaceRecognizer"
+		},
+		"recognitionDelayMs" : 300
+	},
+
+	"Tracker" : {
+		"on" : true,
+
+		"maxPendingFrames" : 3,
+		"waitTimeoutMs" : 200,
+
+		"InternalTracker" : {
+			"typeName" : "CvTracker",
+			"cvTrackerTypeName" : "CSRT",
+			"frameWidth" : 150,
+			"frameHeight" : 150
+		},
+
+		"Verifier" : {
+			"threshold" : 0.2,
+			"maxRecFails" : 0
+		},
+
+		"WeakFitFunc" : {
+			"threshold" : 0.2,
+			"ids" : [
+				0, 1
+			]
+		},
+
+		"StrongFitFunc" : {
+			"threshold" : 0.9,
+			"ids" : [
+				0, 1
+			]
+		}
+	},
+
+	"Capturer" : {
+		"on" : true,
+
+		"source" : "/dev/video0",
+		"settedFrameWidth" : 640,
+		"settedFrameHeight" : 480,
+		"settedCodec" : "MJPG",
+		"settedFps" : 30,
+		"roiX" : 0,
+		"roiY" : 0,
+		"roiW" : 640,
+		"roiH" : 480,
+		"framesDelayMs" : 33,
+		"origFrameName" : "orig.png",
+		"waitTimeoutMs" : 200
+	},
+
+	"CrossCounter" : {
+		"on" : true,
+		"debugScreenOutput" : true,
+		"debugVideoWidth" : 640,
+		"debugVideoHeight" : 480,
+		"lines": [
+			{
+				"begX" : 220,
+				"begY" : 120,
+				"endX" : 220,
+				"endY" : 360
+			},
+			{
+				"begX" : 420,
+				"begY" : 120,
+				"endX" : 420,
+				"endY" : 360
+			}
+		],
+		"waitTimeoutMs" : 200
+	}
+}
